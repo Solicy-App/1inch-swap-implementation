@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@ethersproject/address": "^5.6.1",
     "@ethersproject/bignumber": "^5.6.2",
     "@ethersproject/constants": "^5.6.1",
@@ -16,17 +18,27 @@
     "@ethersproject/providers": "^5.6.8",
     "@ethersproject/solidity": "^5.6.1",
     "@ethersproject/units": "^5.6.1",
+    "@mui/material": "^5.15.15",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindui/react": "^0.1.1",
     "@web3-react/core": "^6.1.9",
+    "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
     "bignumber.js": "^9.1.2",
+    "classnames": "^2.5.1",
+    "clsx": "^2.1.0",
     "next": "14.1.4",
+    "postcss": "^8.4.38",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-window": "^1.8.10",
+    "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-window": "^1.8.8",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "typescript": "^5"

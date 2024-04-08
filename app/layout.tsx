@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import {roboto} from "@/app/ui/font";
 import "./globals.css";
+import Header from "@/app/ui/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body style={{color: 'black'}} className={`${roboto.className} bg-wall antialiased`}>
+      {children}
+      </body>
     </html>
   );
 }

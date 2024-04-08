@@ -42,7 +42,7 @@ export const useSwap1Inch = () => {
         to: router1Inch,
         data: swapTransaction.data,
         ...(swapTransaction.value && !isZero(swapTransaction.value)
-          ? { value: swapTransaction.value.toString(16) } // Convert to Hex.If not working use toHex() from @uniswap/v3-sdk 
+          ? { value: swapTransaction.value.toString(16) } // Convert to Hex.If not working use toHex() from @uniswap/v3-sdk
           : {}),
       };
       const response = await getSigner(library, account)
@@ -70,7 +70,7 @@ export const useSwap1Inch = () => {
       console.error(err);
       return;
     }
-  };
+  }, []);
 
   return { swap1Inch };
 };
