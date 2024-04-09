@@ -33,7 +33,6 @@ export default function Home({ searchParams }: ISearchParams) {
     if (!value) return;
     setInputValue(value);
     if (!from?.address || !to?.address) return;
-    console.log(!from?.address, !to?.address, !from?.address && !to?.address);
     const quote = await getQuote({
       value,
       from: from?.address,

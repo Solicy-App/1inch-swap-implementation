@@ -25,7 +25,6 @@ const PayForm = ({
     },
     500
   );
-  console.log(query);
   return (
     <div
       className={classNames([
