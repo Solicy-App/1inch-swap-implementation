@@ -1,0 +1,9 @@
+@import "../variables";
+
+.hover {
+    transition: .3s ease;
+    &:hover {
+        background-color: lighten($link_default, 40%);
+        cursor: pointer;
+    }
+}

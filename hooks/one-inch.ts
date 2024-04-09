@@ -1,5 +1,3 @@
-"use client";
-
 import { buildTxForSwap1Inch } from "@/utils/1inch/api";
 import { calculateGasMargin } from "@/utils/calculateGasMargin";
 import { ROUTER_ADDRESSES_1INCH } from "@/utils/constants";
@@ -7,42 +5,47 @@ import { generate1InchSwapParmas, getSigner } from "@/utils/helpers";
 import isZero from "@/utils/isZero";
 import { BigNumber } from "@ethersproject/bignumber";
 import { useWeb3React } from "@web3-react/core";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 export const useSwap1Inch = () => {
+  const [from, setFrom] = useState<string>("");
+  const [to, setTo] = useState<string>("");
+
   const chainId = 1;
   const { account, library } = useWeb3React();
   const typedValue = 1; // TO DO: get from input
   const router1Inch = ROUTER_ADDRESSES_1INCH[chainId];
 
-  if (!account) return;
-
-  const from = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; // TO DO: set address from
-
-  const to = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; // TO DO: set address to
-
-  const swap1Inch = async () => {
+  const swap1Inch = async (value: number) => {
+    if (!account) return;
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const swapParams = generate1InchSwapParmas(
       from,
       to,
-      Number(typedValue),
+      Number(value || typedValue),
       account,
-      1
+      1,
+      false,
+      false,
+      true,
+      false,
+      true
     );
 
-    const swapTransaction = await buildTxForSwap1Inch(swapParams, chainId);
-
-    // TO DO: Remove when change DEV plan for 1Inch (1 Request per second)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
     try {
+      const swapTransaction = await buildTxForSwap1Inch(swapParams, chainId);
+
+      // TO DO: Remove when change DEV plan for 1Inch (1 Request per second)
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       const tx = {
         from: account ?? "",
         to: router1Inch,
         data: swapTransaction.data,
         ...(swapTransaction.value && !isZero(swapTransaction.value)
-          ? { value: swapTransaction.value.toString(16) } // Convert to Hex.If not working use toHex() from @uniswap/v3-sdk 
+          ? { value: swapTransaction.value.toString(16) } // Convert to Hex.If not working use toHex() from @uniswap/v3-sdk
           : {}),
       };
       const response = await getSigner(library, account)
@@ -66,11 +69,11 @@ export const useSwap1Inch = () => {
         });
 
       return response;
-    } catch (err) {
-      console.error(err);
+    } catch (err: any) {
+      toast.error(err.message);
       return;
     }
   };
 
-  return { swap1Inch };
+  return { swap1Inch, setFrom, setTo };
 };

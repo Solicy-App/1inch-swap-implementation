@@ -1,0 +1,30 @@
+@import "../variables";
+
+.input_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    a {
+        width: fit-content;
+        color: $link_default;
+        font-size: $text_md;
+        &:hover {
+            color: $text_01;
+        }
+    }
+
+    p {
+        color: $link_default;
+        font-size: $text_md;
+    }
+
+    .wrapper_footer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+    }
+}

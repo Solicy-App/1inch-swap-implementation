@@ -1,0 +1,13 @@
+.overflow {
+    &_y {
+        &_auto {
+            overflow-y: auto;
+        }
+        &_scroll {
+            overflow-y: scroll;
+        }
+        &_hidden {
+            overflow-y: hidden;
+        }
+    }
+}

@@ -1,0 +1,78 @@
+@import "../variables";
+
+@each $gap in $gaps {
+    .m {
+        &_#{$gap} {
+            margin: calc($gap * 2px);
+        }
+        &_x_#{$gap} {
+            margin-left: calc($gap * 2px);
+            margin-right: calc($gap * 2px);
+        }
+        &_y_#{$gap} {
+            margin-top: calc($gap * 2px);
+            margin-bottom: calc($gap * 2px);
+        }
+    }
+
+    .p {
+        &_#{$gap} {
+            padding: calc($gap * 2px) !important;
+        }
+
+        &_x_#{$gap} {
+            padding-left: calc($gap * 2px);
+            padding-right: calc($gap * 2px);
+        }
+
+        &_y_#{$gap} {
+            padding-top: calc($gap * 2px);
+            padding-bottom: calc($gap * 2px);
+        }
+    }
+
+    .height {
+        &_#{$gap} {
+            height: calc($gap * 100px);
+        }
+    }
+
+    .width {
+        &_#{$gap} {
+            width: calc($gap * 100px);
+        }
+    }
+
+    .rounded {
+        &_#{$gap} {
+            border-radius: calc($gap * 2px);
+        }
+    }
+
+    @each $side in $sides {
+        .m_#{str-slice($side, 0, 1)}_#{$gap} {
+          margin-#{$side}: calc($gap * 2px);
+        }
+      
+        .p_#{str-slice($side, 0, 1)}_#{$gap} {
+          padding-#{$side}: calc($gap * 2px);
+        }
+    }
+
+    @each $side in $sides {
+        .border_#{str-slice($side, 0, 1)}_#{$gap} {
+          border-#{$side}: #{$gap}px solid $card_main_color;
+        }
+    }
+}
+
+.height {
+    &_full {
+        height: 100%;
+    }
+}
+.width {
+    &_full {
+        width: 100%;
+    }
+}

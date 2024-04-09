@@ -60,3 +60,16 @@ export function getSigner(library: any, account: string) {
   return library.getSigner(account).connectUnchecked();
 }
 
+/**
+ * @description Search token handler from the list
+ * @param chains
+ * @param {string | null} search
+ * @returns {Array}
+ */
+export const filterChains = (chains: any, search: string | null) => {
+  const values = Object.values(chains);
+  if (!search) return values;
+  return values.filter((token: any) =>
+    token.symbol.toLowerCase().includes(search.toLocaleLowerCase())
+  );
+};

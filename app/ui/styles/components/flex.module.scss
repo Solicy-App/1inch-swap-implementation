@@ -1,0 +1,49 @@
+@import "../variables";
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    &_col {
+        flex-direction: column;
+
+        &_reverse {
+            flex-direction: column-reverse;
+        }
+    }
+    &_row {
+        flex-direction: row;
+
+        &_reverse {
+            flex-direction: row-reverse;
+        }
+    }
+
+    .flex {
+        &_1 {
+            flex: 1 1 auto;
+        }
+        &_0 {
+            flex: 0 0 auto;
+        }
+    }
+}
+
+.justify {
+    &_between {
+        justify-content: space-between;
+    }
+}
+
+.items {
+    &_center {
+        align-items: center;
+    }
+}
+
+.gap {
+    @each $gap in $gaps {
+        &_#{$gap} {
+            gap: calc($gap * 2px)
+        }
+    }
+}

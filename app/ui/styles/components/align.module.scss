@@ -1,0 +1,47 @@
+@import "../variables";
+
+.text {
+    &_r {
+        text-align: right;
+    }
+
+    &_l {
+        text-align: left;
+    }
+
+    &_c {
+        text-align: center;
+    }
+
+    &_xs {
+        font-size: $text_xs;
+    }
+    
+    &_sm {
+        font-size: $text_sm;
+    }
+
+    &_md {
+        font-size: $text_md;
+    }
+
+    &_base {
+        font-size: $text_base;
+    }
+
+    &_xl {
+        font-size: $text_xl;
+    }
+
+    &_2xl {
+        font-size: $text_2xl !important;
+    }
+
+    &_lg {
+        font-size: $text_lg;
+    }
+
+    &_info {
+        color: $link_default;
+    }
+}

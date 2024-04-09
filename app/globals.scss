@@ -1,3 +1,7 @@
+
+@import 'react-loading-skeleton/dist/skeleton.css';
+@import 'react-toastify/dist/ReactToastify.css';
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -83,21 +87,64 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  &::before {
+    content: " ";
+    inset: 0;
+    position: fixed;
+    background: #f3f5fa;
+    z-index: -1;
+    opacity: 0.5;
+  }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  main {
+    &::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      width: 1146px;
+      height: 100%;
+      right: -750px;
+      top: 0;
+      background: radial-gradient(50% 50% at 50% 50%, rgba(194, 131, 194, .44) 0%, rgba(194, 131, 194, 0) 100%);
+      opacity: .7;
+    }
+  
+    &::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      width: 1228px;
+      height: 100%;
+      left: -742px;
+      top: 0;
+      background: radial-gradient(50% 50% at 50% 50%, rgba(40, 94, 176, .28) 0%, rgba(255, 255, 255, 0) 100%);
+      opacity: .7;
+    }
+  }
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 @media (prefers-color-scheme: dark) {

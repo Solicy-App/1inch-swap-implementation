@@ -1,0 +1,30 @@
+@import "../variables";
+
+.card {
+    width: 500px;
+    max-width: 100%;
+    padding: 8px;
+    border-radius: 24px;
+    &.card_white {
+        background-color: $white;
+    }
+    &.card_shadow {
+        box-shadow: $box_shadow;
+    }
+}
+
+.sub_card {
+    border-radius: 16px;
+    padding: 12px 16px;
+    background: $card_main_color;
+    &.bordered {
+        background: transparent;
+        border: 1px solid $card_border_color;
+    }
+}
+
+.card_col {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}

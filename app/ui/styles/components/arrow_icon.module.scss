@@ -1,0 +1,19 @@
+@import "../variables";
+
+.arrow {
+    color: $link_default;
+    &_black {
+        color: #000;
+        svg {
+            path {
+                stroke: #000;
+            }
+        }
+    }
+    &_b {
+        transform: rotate(90deg);
+    }
+    &_l {
+        transform: rotate(180deg) !important;
+    }
+}
