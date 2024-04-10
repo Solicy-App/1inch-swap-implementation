@@ -22,10 +22,7 @@ export async function buildTxForSwap1Inch(
     swapParams: I1InchSwapParams,
     chainId: string | number
 ) {
-    const url = apiRequestUrl(
-        create1InchProxyUrl(`swap/v6.0/${chainId}/swap`),
-        swapParams
-    );
+    const url = apiRequestUrl(`/swap/v6.0/${chainId}/swap`, swapParams);
     try {
         const response = await axios1Inch.get(url);
         
@@ -36,7 +33,8 @@ export async function buildTxForSwap1Inch(
 }
 
 export async function getQuote(config) {
-    const {chainId, fromTokenAddress, toTokenAddress, amount, wallet, decimals, decimalsTo} = config
+    const {chainId, fromTokenAddress, toTokenAddress, amount, decimals, decimalsTo} = config
+    console.log('CONFIG --- ', config);
     if (!chainId) {
         throw new Error('chainId is required')
     }
