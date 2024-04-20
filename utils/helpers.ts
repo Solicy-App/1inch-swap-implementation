@@ -5,6 +5,9 @@ export const TEN = new BigNumber(10);
 export const toWei = (number: number, decimals = 18) =>
   new BigNumber(number).times(TEN.pow(decimals));
 
+export const toNum = (number: number, decimals = 18) =>
+  new BigNumber(number).div(TEN.pow(decimals));
+
 export interface I1InchSwapParams {
   src: string;
   dst: string;

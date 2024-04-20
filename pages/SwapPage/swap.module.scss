@@ -1,0 +1,112 @@
+.container {
+	width: 480px;
+	height: 390px;
+	background: #131823;
+	border-radius: 30px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+
+	.block {
+		width: 100%;
+		height: 120px;
+		border-radius: 20px;
+		padding: 10px 15px;
+		box-sizing: border-box;
+		display: flex;
+		column-gap: 30px;
+
+		&:nth-child(2) {
+			background: black;
+		}
+
+		&:nth-child(3) {
+			border: 1px solid #2c3548;
+		}
+
+		.left {
+			width: 50%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-evenly;
+
+			.title {
+				color: #6c86ad;
+				font-size: 14px;
+			}
+
+			.select_container {
+				display: flex;
+				gap: 10px;
+				align-items: center;
+				border-radius: 15px;
+				padding: 0 10px;
+				box-sizing: border-box;
+
+				&:hover {
+					background: linear-gradient(
+						45deg,
+						rgb(34, 34, 116),
+						rgb(103, 103, 255)
+					);
+				}
+
+				.logo {
+					width: 30px;
+					height: 30px;
+				}
+
+				.select {
+					width: 100%;
+					height: 40px;
+					background: transparent;
+					border: none;
+					font-size: 24px;
+					outline: none;
+					cursor: pointer;
+
+					option {
+						width: 10px !important;
+						color: white;
+						background: rgba(30, 30, 30);
+						font-size: 18px;
+					}
+				}
+			}
+		}
+
+		.right {
+			width: 50%;
+			height: 100%;
+			display: flex;
+
+			input {
+				width: 100%;
+				height: 40px;
+				align-self: center;
+				border: none;
+				background: transparent;
+				font-size: 24px;
+				text-align: right;
+				outline: none;
+			}
+		}
+	}
+
+	.wallet_btn {
+		width: 100%;
+		height: 50px;
+		border-radius: 15px;
+		color: #2f8af5;
+		background: rgba(47, 138, 245, 0.16);
+		font-size: 16px;
+		font-weight: 600;
+		border: none;
+		cursor: pointer;
+	}
+}
