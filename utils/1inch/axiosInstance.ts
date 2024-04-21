@@ -1,14 +1,14 @@
 import axios, { AxiosError } from "axios";
 
 const axios1Inch = axios.create({
-  baseURL: process.env.REACT_APP_1INCH_PROXY_URL || "",
+  baseURL: process.env.NEXT_PUBLIC_1INCH_BASE_URL || "",
   headers: {
-    Authorization: `Bearer ${process.env.REACT_APP_API_KEY_1INCH}`,
+    Authorization: `Bearer ${process.env.NEXT_PUBLIC_INCH_API_KEY}`,
     accept: "application/json",
     "Access-Control-Allow-Origin": "*",
   },
 });
-
+console.log({ddd : process.env.NEXT_APP_1INCH_BASE_URL})
 axios1Inch.interceptors.response.use(
   (response) => response,
   async (error: AxiosError) => {

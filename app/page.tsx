@@ -1,95 +1,41 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Account from "@/components/ui/account";
+import { Button } from "@/components/ui/button";
+import SwapperSelect from "@/components/ui/swapper-select";
+import SwitcChain from "@/components/ui/switch-chain";
+import WalletConnect from "@/components/ui/wallet-connect";
+import { IPageQueryParams } from "@/types/helper";
+import { getSwapTokens } from "@/utils/1inch/api";
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query";
 
-export default function Home() {
+export default async function Home({
+  params,
+  searchParams,
+}: IPageQueryParams<{ chain: number }>) {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: ["getTokens", searchParams.chain],
+    queryFn: async () =>
+      getSwapTokens(searchParams.chain).then((res) => res.data),
+  });
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <div className="flex h-dvh w-full justify-center items-center bg-gradient-to-r from-light-grey to-light-lavender">
+        <div className="absolute top-0 right-3 flex gap-3">
+          <SwitcChain />
+          <Account />
+        </div>
+        <div className="shadow-md shadow-tale-blue max-w-md w-full min-h-24 bg-white rounded-3xl p-2 flex flex-col gap-2">
+          <p className="font-medium pl-2">Swap</p>
+          <SwapperSelect />
+          <WalletConnect />
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </HydrationBoundary>
   );
 }

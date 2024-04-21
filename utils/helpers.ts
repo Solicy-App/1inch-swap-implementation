@@ -5,6 +5,16 @@ export const TEN = new BigNumber(10);
 export const toWei = (number: number, decimals = 18) =>
   new BigNumber(number).times(TEN.pow(decimals));
 
+export const truncateAddress = (
+  address: string,
+  prefixLength = 6,
+  suffixLength = 4
+) => {
+  const prefix = address.slice(0, prefixLength);
+  const suffix = address.slice(-suffixLength);
+  return `${prefix}...${suffix}`;
+};
+
 export interface I1InchSwapParams {
   src: string;
   dst: string;
@@ -59,4 +69,3 @@ export const generate1InchSwapParmas = (
 export function getSigner(library: any, account: string) {
   return library.getSigner(account).connectUnchecked();
 }
-

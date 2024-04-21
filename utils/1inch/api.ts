@@ -1,8 +1,8 @@
 import { I1InchSwapParams } from "../helpers";
 import axios1Inch from "./axiosInstance";
 
-const oneInchBaseUrl = process.env.REACT_APP_1INCH_BASE_URL || "";
-
+const oneInchBaseUrl = process.env.NEXT_PUBLIC_1INCH_BASE_URL || "";
+console.log({oneInchBaseUrl})
 export const create1InchProxyUrl = (url: string) =>
   `?url=${oneInchBaseUrl}${url}`;
 export const broadcastApiUrl1Inch = (chainId: string | number) =>
@@ -30,3 +30,9 @@ export async function buildTxForSwap1Inch(
     console.error(err);
   }
 }
+
+export const getSwapTokens = async (chain: number) => {
+  const url = apiRequestUrl(`swap/v6.0/${chain}/tokens`, {});
+  const tokenData = await axios1Inch.get(url);
+  return tokenData;
+};
