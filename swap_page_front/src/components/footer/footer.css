@@ -1,0 +1,11 @@
+footer {
+    z-index: 99;
+    position: relative;
+}
+.copyright {
+    display: flex;
+    align-items: center;
+}
+.copyright svg {
+    margin-right: 5px;
+}

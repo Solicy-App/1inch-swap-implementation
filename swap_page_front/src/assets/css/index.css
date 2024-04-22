@@ -1,0 +1,274 @@
+@import "../../components/header/header.css";
+@import "../../components/footer/footer.css";
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa !important;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px
+}
+
+a {
+    text-decoration: none;
+}
+
+.gray {
+    background: #f7f9fc;
+}
+
+/*/// Swap page styles ///*/
+.swap-container {
+    width: 530px;
+    max-width: 550px;
+    margin: 2em auto;
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 1em;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #393939 !important
+}
+
+.swap-container .swap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.swap-container .swap-header strong {
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #222222;
+    padding-bottom: 4px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+}
+
+.swap-container .swap-header .color-label {
+    color: #6c86ad;
+}
+
+.input-group-you {
+    width: 93.5%;
+    border: 1px solid #dfe1e5;
+    display: block;
+    padding: 12px 16px;
+    border-radius: 10px !important;
+    background-color: #f3f5fa;
+    margin-top: 15px;
+}
+
+.input-group-amount {
+    width: 93.5%;
+    border: 1px solid #dfe1e5;
+    display: block;
+    padding: 12px 16px;
+    border-radius: 10px !important;
+    margin-top: 15px;
+}
+
+.input-group-you label,
+.input-group-amount label {
+    display: block;
+    margin-bottom: .5em;
+    font-size: 13px;
+    color: #6c86ad;
+}
+
+.input-group-you div
+.input-group-amount div {
+    width: 100%;
+}
+
+.select-token {
+    width: 45% !important;
+    padding: .75em;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.select-token-receive {
+    width: 45%;
+    display: flex;
+    padding: .75em;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+}
+.select-chain__control {
+    cursor: pointer !important;
+    color: white !important;
+    .select-chain__placeholder {
+        color: white !important;
+    }
+    .select-chain__menu {
+        display: flex;
+        align-items: center;
+    }
+}
+.select-token__control {
+    border: 1px solid rgba(169, 169, 169, 0.21) !important;
+    cursor: pointer !important  ;
+    .select-token__value-container {
+        width: 80%;
+    }
+
+    .select-token__indicators {
+        width: 20%;
+    }
+
+    .select-token__menu {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.input-group-you input {
+    width: 55%;
+    padding: .75em;
+    margin-bottom: .5em;
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    text-align: right;
+    font-size: 22px;
+}
+
+.input-group-amount input[id="amount-out"] {
+    width: 55%;
+    padding: .75em;
+    margin-bottom: .5em;
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    text-align: right;
+    font-size: 22px;
+}
+
+.input-group-you input:focus,
+.input-group-amount input:focus {
+    outline: none !important;
+}
+
+.select-token:focus,
+.select-token:focus-visible,
+.select-token-receive:focus,
+.select-token-receive:focus-visible,
+.input-group-you input:focus,
+.input-group-amount input:focus,
+.input-group-you input:focus-visible
+.input-group-amount input:focus-visible {
+    outline: none !important;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+button {
+    padding: .75em 1.5em;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.connect-wallet {
+    display: flex;
+    width: 100%;
+    white-space: pre-line;
+    background-color: #4caf50;
+    height: 48px;
+    padding: 7px 16px;
+    line-height: 26px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    outline: none;
+    border: none;
+    margin: 0;
+    color: #2f8af5;
+    background-color: rgba(47, 138, 245, 0.26);
+}
+
+.connect-wallet svg,
+.swap-button svg {
+    margin-right: 5px;
+}
+
+.swap-button {
+    display: flex;
+    width: 48%;
+    white-space: pre-line;
+    background-color: #4caf50;
+    height: 48px;
+    padding: 7px 16px;
+    line-height: 26px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    outline: none;
+    border: none;
+    margin: 0;
+}
+
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px !important
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px !important
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px !important
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1084px !important
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1140px !important;
+    }
+}
+
+.react-select {
+    width: 50%;
+}

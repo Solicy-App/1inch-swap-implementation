@@ -1,0 +1,157 @@
+header {
+    width: 100%;
+    height: 100px;
+}
+.header-container {
+    width: 1350px;
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    padding-right: calc(var(--bs-gutter-x)* 0.5);
+    padding-left: calc(var(--bs-gutter-x)* 0.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+.nav-menu,
+ul {
+    list-style: none
+}
+
+.navigation,
+.navigation * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent
+}
+
+.navigation {
+    width: 100%;
+    height: 70px;
+    display: table;
+    position: relative;
+    font-family: inherit;
+}
+
+
+.nav-header {
+    float: left
+}
+
+.nav-brand {
+    padding: 0;
+    font-size: 24px;
+    margin-right: 1rem;
+    text-decoration: none !important
+}
+
+.navbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+.nav-menu > li > a,
+nav a {
+    text-decoration: none
+}
+.nav-menu > li > .new-item {
+    display: flex;
+    align-items: center;
+}
+.nav-menu > li > .new-item > .new-btn {
+    border-radius: 61px;
+    padding: 4px 8px;
+    margin-left: 3px;
+    font-size: 13px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(59.07deg, #1b62eb 9.98%, #db00ff 86.28%);
+}
+
+.nav-brand > .logo {
+    height: 60px;
+    margin: 10px auto;
+    float: left;
+    cursor: pointer;
+}
+.nav-brand > .logo-text {
+    height: 40px;
+    margin: 20px auto;
+    float: left;
+    cursor: pointer;
+}
+
+.nav-logo:focus > img {
+    outline: initial
+}
+
+
+nav a,
+nav a:focus,
+nav a:hover {
+    outline: 0
+}
+
+.nav-menu {
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu > li {
+    display: inline-block;
+    float: left;
+    text-align: left
+}
+
+.nav-menu > li > a {
+    font-weight: 400;
+    display: inline-block;
+    transition: color .3s, background .3s;
+    color: #353535;
+    margin: 0 15px 0 0;
+}
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.nav-buttons .settings-svg {
+    margin-left: 10px;
+    color: #6c86ad;
+
+}
+.ethereum-btn {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    padding: 6px 10px 6px 8px;
+    border-radius: 12px;
+    border: none;
+    position: relative;
+    font-size: 16px;
+    color: black;
+    background: linear-gradient(73.28deg, #495bfc 6.51%, #3f85ee 88.45%) !important;
+    margin-right: 10px;
+}
+.ethereum-btn svg {
+    margin-right: 5px;
+}
+.wallet-btn {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    padding: 6px 10px 6px 8px;
+    border-radius: 12px;
+    border: none;
+    position: relative;
+    font-size: 16px;
+    color: #2f8af5;
+    background-color: rgba(47, 138, 245, 0.26);
+}
+.wallet-btn svg {
+    font-weight: bold;
+    margin-right: 5px;
+}
