@@ -274,3 +274,12 @@
   height: 36px;
   
 }
+
+#xiconbutton, #Xicon {
+  background-color: white;
+  border: none;
+}
+
+#xiconbutton {
+  margin: 5px;
+}

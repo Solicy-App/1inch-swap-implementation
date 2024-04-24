@@ -3,6 +3,7 @@ import Token from "../interfaces/Token";
 import React from "react";
 import Image from "next/image";
 import styles from "../styles/page.module.css";
+import Xicon from "../icons/Xicon.png";
 
 const Tokenpanel: React.FC<TokenpanelProps> = (props) => {
   
@@ -14,7 +15,13 @@ const Tokenpanel: React.FC<TokenpanelProps> = (props) => {
     <>
       <div className={styles.tokenpanelbody}>
         <div className={styles.tokenpanelheader}>
-          <button onClick={() => props.showTokens}>Back</button>
+          <button id={styles.xiconbutton} onClick={() => props.showTokens()}><Image
+                id={styles.Xicon}
+                src={Xicon}
+                alt="Xicon"
+                height={15}
+                width={15}
+              /></button>
           <h4>Select a token</h4>
         </div>
         <div className={styles.tokenpanelmain}>
