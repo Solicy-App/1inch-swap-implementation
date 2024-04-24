@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "ArabotoFont";
+  src: url("../fonts/ArabotoFont/ArabotoNormal.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ArabotoFont";
+  src: url("../fonts/ArabotoFont/ArabotoBold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+:root {
+  --darker-blue: #495bfb;
+  --lighter-blue: #3e85ed;
+  --milk-white: #f1f1f9;
+  --gray: gray;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  font-family: "Araboto";
+}
+
+body {
+  background-color: var(--milk-white);
+}
