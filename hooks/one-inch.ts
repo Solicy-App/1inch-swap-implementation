@@ -14,19 +14,19 @@ export const useSwap1Inch = () => {
   const typedValue = 1; // TO DO: get from input
   const router1Inch = ROUTER_ADDRESSES_1INCH[chainId];
 
-  if (!account) return;
+  if (!account) return {swap1Inch: undefined};
 
   const from = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; // TO DO: set address from
 
   const to = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; // TO DO: set address to
 
-  const swap1Inch = async () => {
+  const swap1Inch = async (from: string, to: string, input_amount: number) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const swapParams = generate1InchSwapParmas(
       from,
       to,
-      Number(typedValue),
+      Number(input_amount),
       account,
       1
     );
