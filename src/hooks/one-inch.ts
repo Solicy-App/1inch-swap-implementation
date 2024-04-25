@@ -1,26 +1,27 @@
 "use client";
 
-import { buildTxForSwap1Inch } from "@/utils/1inch/api";
-import { calculateGasMargin } from "@/utils/calculateGasMargin";
-import { ROUTER_ADDRESSES_1INCH } from "@/utils/constants";
-import { generate1InchSwapParmas, getSigner } from "@/utils/helpers";
-import isZero from "@/utils/isZero";
+import { buildTxForSwap1Inch } from "../utils/1inch/api";
+import { calculateGasMargin } from "../utils/calculateGasMargin";
+import { ROUTER_ADDRESSES_1INCH, ChainId } from "../utils/constants";
+import { generate1InchSwapParmas, getSigner } from "../utils/helpers";
+import isZero from "../utils/isZero";
 import { BigNumber } from "@ethersproject/bignumber";
 import { useWeb3React } from "@web3-react/core";
 
-export const useSwap1Inch = () => {
-  const chainId = 1;
+const useSwap1Inch = () => {
+  
   const { account, library } = useWeb3React();
-  const typedValue = 1; // TO DO: get from input
-  const router1Inch = ROUTER_ADDRESSES_1INCH[chainId];
+  
 
   if (!account) return;
 
-  const from = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; // TO DO: set address from
-
-  const to = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; // TO DO: set address to
-
-  const swap1Inch = async () => {
+  const swap1Inch = async (
+    chainId: number, 
+    typedValue: number, 
+    from: string,
+    to: string
+    ) => {
+    const router1Inch = ROUTER_ADDRESSES_1INCH[chainId as ChainId];
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const swapParams = generate1InchSwapParmas(
@@ -72,5 +73,7 @@ export const useSwap1Inch = () => {
     }
   };
 
-  return { swap1Inch };
+  return swap1Inch;
 };
+
+export default useSwap1Inch;
