@@ -1,0 +1,65 @@
+.container {
+  width: 500px;
+  height: 600px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: fixed;
+  z-index: 555;
+  background-color: black;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header {
+  width: 100%;
+  background-color: black;
+  display: flex;
+  gap: 10px;
+}
+
+.backButton {
+  background-color: #06070a;
+  border: none;
+  cursor: pointer;
+}
+
+.title {
+  color: #fff;
+}
+
+.inputField {
+  border: 1px solid #fff;
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+  font-size: 24px;
+  text-align: center;
+  padding: 30px 10px;
+  border-radius: 16px;
+}
+
+.optionsContainer {
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.logo {
+  margin-right: 10px;
+}
+
+.optionName {
+  color: #fff;
+}
