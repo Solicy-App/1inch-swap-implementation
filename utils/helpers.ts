@@ -5,6 +5,19 @@ export const TEN = new BigNumber(10);
 export const toWei = (number: number, decimals = 18) =>
   new BigNumber(number).times(TEN.pow(decimals));
 
+export interface I1InchToken {
+  address: string;
+  chainId: number;
+  decimals: number;
+  eip2612: boolean;
+  isFoT: boolean;
+  logoURI: string;
+  name: string;
+  symbol: string;
+  tags: string[];
+  providers: string[];
+}
+
 export interface I1InchSwapParams {
   src: string;
   dst: string;
@@ -59,4 +72,3 @@ export const generate1InchSwapParmas = (
 export function getSigner(library: any, account: string) {
   return library.getSigner(account).connectUnchecked();
 }
-

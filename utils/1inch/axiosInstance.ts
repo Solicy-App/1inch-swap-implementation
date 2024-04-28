@@ -1,9 +1,8 @@
 import axios, { AxiosError } from "axios";
 
 const axios1Inch = axios.create({
-  baseURL: process.env.REACT_APP_1INCH_PROXY_URL || "",
   headers: {
-    Authorization: `Bearer ${process.env.REACT_APP_API_KEY_1INCH}`,
+    Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY_1INCH}`,
     accept: "application/json",
     "Access-Control-Allow-Origin": "*",
   },
