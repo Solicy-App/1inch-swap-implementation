@@ -1,35 +1,54 @@
 "use client";
-
-import { buildTxForSwap1Inch } from "@/utils/1inch/api";
+import { buildTxForSwap1Inch, getAllowance } from "@/utils/1inch/api";
 import { calculateGasMargin } from "@/utils/calculateGasMargin";
-import { ROUTER_ADDRESSES_1INCH } from "@/utils/constants";
-import { generate1InchSwapParmas, getSigner } from "@/utils/helpers";
+import { ChainId, ROUTER_ADDRESSES_1INCH } from "@/utils/constants";
+import {
+  EthSwapToken,
+  generate1InchSwapParmas,
+  getSigner,
+} from "@/utils/helpers";
 import isZero from "@/utils/isZero";
 import { BigNumber } from "@ethersproject/bignumber";
-import { useWeb3React } from "@web3-react/core";
+import { modal } from "@reown/appkit/react";
+import { Web3Provider } from "@ethersproject/providers";
 
-export const useSwap1Inch = () => {
-  const chainId = 1;
-  const { account, library } = useWeb3React();
-  const typedValue = 1; // TO DO: get from input
+interface Props {
+  from: EthSwapToken;
+  to: EthSwapToken;
+  account: string;
+  amountFrom: string;
+}
+export const useSwap1Inch = ({ from, to, account, amountFrom }: Props) => {
+  const chainId = ChainId.ETHEREUM;
+  const walletProvider = modal?.getWalletProvider();
+
+  if (!walletProvider) return;
+
+  const library = new Web3Provider(walletProvider);
+
   const router1Inch = ROUTER_ADDRESSES_1INCH[chainId];
 
   if (!account) return;
 
-  const from = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; // TO DO: set address from
-
-  const to = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; // TO DO: set address to
-
   const swap1Inch = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
     const swapParams = generate1InchSwapParmas(
-      from,
-      to,
-      Number(typedValue),
+      from.address,
+      to.address,
+      Number(amountFrom),
       account,
-      1
+      1,
     );
+    const { allowance } = await getAllowance({
+      chainId,
+      tokenAddress: from,
+      walletAddress: account,
+    });
+
+    if (!allowance || allowance === "0") return;
+    // If allowance is less than requested amount then don't process(@TODO include also gas calculation)
+    if (BigNumber.from(allowance).lt(swapParams.amount)) return;
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const swapTransaction = await buildTxForSwap1Inch(swapParams, chainId);
 
@@ -42,7 +61,7 @@ export const useSwap1Inch = () => {
         to: router1Inch,
         data: swapTransaction.data,
         ...(swapTransaction.value && !isZero(swapTransaction.value)
-          ? { value: swapTransaction.value.toString(16) } // Convert to Hex.If not working use toHex() from @uniswap/v3-sdk 
+          ? { value: swapTransaction.value.toString(16) } // Convert to Hex.If not working use toHex() from @uniswap/v3-sdk
           : {}),
       };
       const response = await getSigner(library, account)
@@ -58,7 +77,7 @@ export const useSwap1Inch = () => {
             .then((response: { hash: any }) => {
               if (!response.hash) {
                 throw new Error(
-                  `Your swap was modified through your wallet. If this was a mistake, please cancel immediately or risk losing your funds.`
+                  `Your swap was modified through your wallet. If this was a mistake, please cancel immediately or risk losing your funds.`,
                 );
               }
               return response;

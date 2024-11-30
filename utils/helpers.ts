@@ -1,9 +1,17 @@
+import { SwapToken } from "@reown/appkit";
 import BigNumber from "bignumber.js";
 
 export const TEN = new BigNumber(10);
 
+export const fromWei = (number: string, decimals: number = 18) =>
+  new BigNumber(number).div(TEN.pow(decimals));
+
 export const toWei = (number: number, decimals = 18) =>
   new BigNumber(number).times(TEN.pow(decimals));
+
+export interface EthSwapToken extends SwapToken {
+  logoURI: string;
+}
 
 export interface I1InchSwapParams {
   src: string;
@@ -40,7 +48,7 @@ export const generate1InchSwapParmas = (
   allowPartialFill?: boolean,
   includeTokensInfo?: boolean,
   includeProtocols?: boolean,
-  includeGas?: boolean
+  includeGas?: boolean,
 ): I1InchSwapParams => {
   return {
     src: from, // The address of the token you want to swap from
@@ -59,4 +67,3 @@ export const generate1InchSwapParmas = (
 export function getSigner(library: any, account: string) {
   return library.getSigner(account).connectUnchecked();
 }
-
