@@ -8,17 +8,23 @@ import isZero from "@/utils/isZero";
 import { BigNumber } from "@ethersproject/bignumber";
 import { useWeb3React } from "@web3-react/core";
 
-export const useSwap1Inch = () => {
+interface SwapData {
+  fromToken: string;
+  toToken: string;
+  amount: number;
+}
+
+export const useSwap1Inch = (props:SwapData) => {
   const chainId = 1;
   const { account, library } = useWeb3React();
-  const typedValue = 1; // TO DO: get from input
+  const typedValue = props.amount; 
   const router1Inch = ROUTER_ADDRESSES_1INCH[chainId];
 
   if (!account) return;
 
-  const from = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; // TO DO: set address from
+  const from = props.fromToken;
 
-  const to = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; // TO DO: set address to
+  const to = props.toToken; 
 
   const swap1Inch = async () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
