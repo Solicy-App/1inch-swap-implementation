@@ -1,0 +1,28 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.tokenItem {
+    width: 464px;
+    height: 104px;
+    background: #F3F5FA;
+    border-radius: 20px;
+    padding: 12px 16px;
+}
+
+.tokenItem .smallText {
+    font-size: 13px;
+    color: #6c86ad;
+}
+
+.tokenItem .input::-webkit-inner-spin-button,
+.tokenItem .input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
