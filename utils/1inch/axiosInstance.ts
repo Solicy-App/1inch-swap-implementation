@@ -6,6 +6,7 @@ const axios1Inch = axios.create({
     Authorization: `Bearer ${process.env.REACT_APP_API_KEY_1INCH}`,
     accept: "application/json",
     "Access-Control-Allow-Origin": "*",
+    "origin": "*",
   },
 });
 

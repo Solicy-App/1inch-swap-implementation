@@ -30,3 +30,56 @@ export async function buildTxForSwap1Inch(
     console.error(err);
   }
 }
+
+export async function getTokens() {
+  const url = create1InchProxyUrl('/token/v1.2/multi-chain');
+  try {
+    const response = await axios1Inch.get(url);
+
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function searchTokens(query: string) {
+  const url = create1InchProxyUrl('/token/v1.2/search');
+  try {
+    const response = await axios1Inch.get(url, {
+      paramsSerializer: {
+        indexes: null
+      },
+      params: {
+        query,
+        only_positive_rating: true
+      },
+    });
+
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+interface GetQuoteParamsT {
+  srcTokenAddress: string;
+  chainId: number;
+  dstTokenAddress: string;
+  amount: number;
+  walletAddress: string;
+  enableEstimate: boolean;
+}
+export async function getQuote(params: GetQuoteParamsT) {
+  const url = create1InchProxyUrl('/fusion-plus/quoter/v1.0/quote/receive');
+  try {
+    const response = await axios1Inch.get(url, {
+      paramsSerializer: {
+        indexes: null
+      },
+      params,
+    });
+
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}
