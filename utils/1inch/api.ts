@@ -1,10 +1,10 @@
 import { I1InchSwapParams } from "../helpers";
 import axios1Inch from "./axiosInstance";
 
-const oneInchBaseUrl = process.env.REACT_APP_1INCH_BASE_URL || "";
+const oneInchBaseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const create1InchProxyUrl = (url: string) =>
-  `?url=${oneInchBaseUrl}${url}`;
+  `${oneInchBaseUrl}${url}`;
 export const broadcastApiUrl1Inch = (chainId: string | number) =>
   create1InchProxyUrl(`/tx-gateway/v1.1/${chainId}/broadcast`);
 export const apiBaseUrl1Inch = (chainId: string | number) =>
@@ -24,9 +24,8 @@ export async function buildTxForSwap1Inch(
   );
   try {
     const response = await axios1Inch.get(url);
-
     return response.data.tx;
   } catch (err) {
-    console.error(err);
+    alert(err?.response.data.description)
   }
 }

@@ -1,0 +1,113 @@
+.TokeninputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+}
+
+.button {
+  background-color: rgb(47 138 245 / 16%);
+  border: none;
+  width: 100%;
+  color: rgb(47 138 245);
+  padding: 11px 18px;
+  font-size: 16px;
+  border-radius: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+#connectedButton {
+  background-color: #324054 !important;
+  color: #6c86ad !important;
+  cursor: default !important;
+}
+
+.button:hover {
+  background-color: rgb(47 138 245 / 24%);
+}
+
+.swapDirectionArrow {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #232c3d;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .25);
+  top: 12px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectToken {
+  gap: 0 !important;
+  background-color: transparent !important;
+  box-shadow: inset 0 0 0 1px #202835;
+}
+
+.selectTokenDiv {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.selectButton {
+  border: none;
+  background-color: rgba(47, 138, 245, .16);
+  color: #2f8af5;
+  padding: 6px 5px 6px 8px;
+  margin-left: -8px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.selectButton:hover {
+  background: #2f8af5;
+  color: white;
+}
+
+.selectButton:hover #SVGRepo_iconCarrier>path {
+  stroke: white;
+}
+
+.accardion {
+  background-color: rgba(6, 10, 16, .5);
+  border-radius: 16px;
+  margin-top: 8px;
+  padding: 14px 16px !important;
+}
+
+.accardionItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.valuesWrapper>p {
+  font-size: 13px;
+}
+
+.valuesWrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.valuesWrapper>p>span {
+  color: #6c86ad !important;
+}

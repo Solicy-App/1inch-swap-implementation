@@ -1,0 +1,42 @@
+.selectNetWork {
+  position: absolute;
+  max-height: 340px;
+  width: 212px;
+  background: #06070a;
+  border-radius: 12px;
+  padding: 20px 8px 6px 12px;
+  overflow: scroll;
+  top: 55px;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.selectNetWorkItem>p {
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.selectNetWorkItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.selectNetWorkItem>img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.selectNetWorkItemWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

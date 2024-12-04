@@ -1,0 +1,139 @@
+.TokenItemWrapper {
+  overflow-y: scroll;
+  max-height: 300px;
+  padding: 0 4px;
+  margin-top: 20px;
+}
+
+#selectDestinationToken {
+  padding: 0 !important;
+}
+
+.selectDestinationToken {
+  padding: 0 12px !important;
+}
+
+.selectTokenHeader {
+  padding: 10px 16px 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.selectTokenHeaderBack {
+  position: absolute;
+  left: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.selectTokenHeaderBack:hover {
+  background: rgba(108, 134, 173, 0.15);
+  transition: 0.2s;
+}
+
+.selectTokenHeaderBack:hover>svg {
+  fill: #c1c2c5;
+  transition: 0.2s;
+}
+
+.allNetworks {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 12px 6px 6px;
+  margin-left: 20px;
+}
+
+.allNetworks>img {
+  width: 24px;
+  height: 24px;
+}
+
+.allNetworks:hover {
+  background-color: #10141c;
+  border-radius: 10px;
+}
+
+.allNetworks>p {
+  margin: 0 4px 0 8px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.searchInput {
+  height: 48px;
+  width: 100%;
+  background: #06070a;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.searchSvg {
+  position: absolute;
+  left: 10px;
+}
+
+.searchInput>input {
+  padding: 16px 40px 16px 50px;
+  color: #ffffff;
+  background: none;
+  border: none;
+  line-height: 19px;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 16px;
+  border: 1px solid transparent;
+}
+
+.searchInput>input:focus {
+  border: 1px solid #2f8af5;
+  outline: none;
+}
+
+.searchInput>input::placeholder {
+  color: #3e4c64;
+  font-size: 16px;
+}
+
+.clearSvg {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+}
+
+.clearSvg:hover {
+  background-color: rgba(108, 134, 173, .15);
+}
+
+.openSelect {
+  opacity: 0;
+  transition: 700ms;
+}
+
+.openSelect1 {
+  opacity: 1;
+  transition: 700ms;
+  z-index: 9999;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}

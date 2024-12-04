@@ -1,0 +1,107 @@
+.header {
+  display: flex;
+  width: 100%;
+  margin-bottom: 4px;
+  justify-content: space-between;
+}
+
+.headerTabs {
+  align-items: center;
+  margin-left: 12px;
+}
+
+.headerTabs>p {
+  color: #fff;
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.header>div {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.limitL {
+  color: #6c86ad !important
+}
+
+.limitL:hover {
+  color: #2f8af5 !important;
+}
+
+.headerActions {
+  cursor: pointer;
+  display: flex;
+  gap: 4px !important;
+}
+
+
+#countdown {
+  position: relative;
+  margin: auto;
+  height: 17px;
+  width: 17px;
+}
+
+
+#countdown svg {
+  width: 17px;
+  height: 17px;
+  z-index: 99999999;
+}
+
+#countdown>svg>path {
+  stroke-dasharray: 65px;
+  stroke-dashoffset: 0px;
+  strokeLinecap: round;
+  strokeWidth: 2px;
+  stroke: white;
+  fill: none;
+  animation: countdown 8s linear infinite forwards;
+}
+
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+
+  to {
+    stroke-dashoffset: 65px;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 700ms linear;
+  transform-origin: center;
+  stroke-dashoffset: 65px;
+  stroke: white;
+}
+
+.headerActionsDiv {
+  cursor: pointer;
+  height: 36px;
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerActionsDiv:hover {
+  border-radius: 12px;
+  background-color: rgba(108, 134, 173, .15);
+}

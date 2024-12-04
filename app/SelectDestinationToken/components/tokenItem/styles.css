@@ -1,0 +1,41 @@
+.tokenItemImg>img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.tokenItem {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tokenItem:hover {
+  background-color: rgba(6, 10, 16, 0.5);
+}
+
+.tokenItemImg {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tokenItemPrice {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.TokenInfoName {
+  line-height: 26px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.TokenInfoP {
+  font-size: 13px;
+  line-height: 16px;
+  color: #6c86ad;
+}
